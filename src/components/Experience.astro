@@ -1,0 +1,44 @@
+---
+import type { Experience } from "@/types/index.ts"
+import Title from "./Title.astro"
+
+export interface Props {
+  title: string
+  data: Experience[]
+}
+
+const { title, data } = Astro.props
+---
+
+<div>
+  <Title text={title} className="flex flex-col items-center justify-center" />
+  <div class="pt-10">
+    {
+      data.map((experience) => (
+        <div class="mb-8 flex flex-wrap lg:justify-center">
+          <div class="w-full lg:w-1/4">
+            <p class="mb-2 text-sm text-white">{experience.year}</p>
+          </div>
+          <div class="w-full max-w-xl lg:w-3/4">
+            <p class="mb-2 font-semibold text-white">
+              {experience.role} |{" "}
+              <span class="text-sm">{experience.company}</span>
+            </p>
+
+            {experience.description.map((description) => (
+              <p class="mb-2 text-white">{description}</p>
+            ))}
+
+            {experience.tech.length > 0 && (
+              <div class="flex items-center gap-5">
+                {experience.tech.map((Icon, index) => (
+                  <Icon key={index} className="h-8 w-5 text-white" />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

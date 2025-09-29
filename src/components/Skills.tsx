@@ -1,9 +1,6 @@
-"use client"
-
-import { HoverEffect } from "@/components/ui/CardHoverEffect"
-import { skills } from "@/lib/data"
-
-import Title from "./Title"
+import { HoverEffect } from "@/components/ui/CardHoverEffect.tsx"
+import { skills } from "@/lib/data.ts"
+import Title from "./Title.tsx"
 
 export default function Skills() {
   return (

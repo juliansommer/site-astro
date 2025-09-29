@@ -1,9 +1,7 @@
-"use client"
-
 import { AnimatePresence, motion } from "motion/react"
 import { useRef, useState } from "react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils.ts"
 
 interface DirectionAwareHoverProps {
   imageUrl: string

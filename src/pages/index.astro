@@ -1,12 +1,15 @@
 ---
 import Layout from "@/layouts/Root.astro"
-import { cn } from "@/lib/utils.ts"
-import Navbar from "@/components/Navbar.tsx"
-import HeroSection from "@/components/HeroSection.tsx"
-import Experience from "@/components/Experience.tsx"
-import Projects from "@/components/Projects.tsx"
+
+import Experience from "@/components/Experience.astro"
+import Navbar from "@/components/Navbar.astro"
+import Footer from "@/components/Footer.astro"
+import HeroSection from "@/components/HeroSection.astro"
+
 import Skills from "@/components/Skills.tsx"
-import Footer from "@/components/Footer.tsx"
+import Projects from "@/components/Projects.tsx"
+
+import { cn } from "@/lib/utils.ts"
 import { experience, education } from "@/lib/data.ts"
 ---
 

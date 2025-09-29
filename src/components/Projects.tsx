@@ -1,8 +1,7 @@
-import { DirectionAwareHover } from "@/components/ui/DirectionAwareHover"
-import { projects } from "@/lib/data"
-import { cn } from "@/lib/utils"
-
-import Title from "./Title"
+import { DirectionAwareHover } from "@/components/ui/DirectionAwareHover.tsx"
+import { projects } from "@/lib/data.ts"
+import { cn } from "@/lib/utils.ts"
+import Title from "./Title.tsx"
 
 export default function Projects() {
   return (
