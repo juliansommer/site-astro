@@ -1,0 +1,12 @@
+---
+import Title from "./Title.astro"
+import ProjectsWrapper from "@/components/ProjectsWrapper"
+---
+
+<div>
+  <Title
+    text="Projects 🎨"
+    className="flex flex-col items-center justify-center"
+  />
+  <ProjectsWrapper client:load/>
+</div>

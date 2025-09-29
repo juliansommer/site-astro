@@ -88,11 +88,12 @@ export function DirectionAwareHover({
             }}
           >
             <img
-              alt={imageAlt + " Image"}
+              alt={imageAlt}
               className={cn("scale-[1.15] object-cover", imageClassName)}
               width="1000"
               height="1000"
               src={imageUrl}
+              loading="lazy"
             />
           </motion.div>
           <motion.div

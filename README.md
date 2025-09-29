@@ -5,3 +5,5 @@ This project is my personal site which uses Astro with React, TypeScript and Tai
 ## TODO
 
 - csp
+- import sorting
+- react compiler?
