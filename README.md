@@ -6,3 +6,4 @@ This project is my personal site which uses Astro with React, TypeScript and Tai
 
 - import sorting
 - headers - [see](https://docs.astro.build/en/guides/integrations-guide/vercel/#experimentalstaticheaders)
+- bot protection
