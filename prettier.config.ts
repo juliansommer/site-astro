@@ -3,6 +3,7 @@ import { type Config } from "prettier"
 const config: Config = {
   bracketSameLine: false,
   semi: false,
+  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   overrides: [
     {
       files: "*.astro",
@@ -11,7 +12,6 @@ const config: Config = {
       },
     },
   ],
-  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
 }
 
 export default config
