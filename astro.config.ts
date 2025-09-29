@@ -4,6 +4,9 @@ import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from "astro/config"
 
 export default defineConfig({
+  adapter: vercel({
+    experimentalStaticHeaders: true,
+  }),
   experimental: {
     csp: {
       directives: [
@@ -18,13 +21,6 @@ export default defineConfig({
       ],
     },
   },
-  site: "https://julians.au",
-  vite: {
-    plugins: [tailwindcss()],
-  },
-  adapter: vercel({
-    experimentalStaticHeaders: true,
-  }),
   integrations: [
     react({
       babel: {
@@ -32,4 +28,7 @@ export default defineConfig({
       },
     }),
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 })
