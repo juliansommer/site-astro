@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@theme {
+  --animate-move-up: move-up 1s linear forwards;
+  @keyframes move-up {
+    0% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  --animate-move-down: move-down 1s linear forwards;
+  @keyframes move-down {
+    0% {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
