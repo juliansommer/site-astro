@@ -1,0 +1,12 @@
+---
+import { SkillsWrapper } from "./SkillsWrapper.tsx"
+import Title from "./Title.astro"
+---
+
+<div class="mx-auto max-w-3xl pt-22">
+  <Title
+    text="Skills 🛠️"
+    className="flex flex-col items-center justify-center"
+  />
+  <SkillsWrapper client:load />
+</div>
