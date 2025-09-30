@@ -1,6 +1,6 @@
-import { DirectionAwareHover } from "@/components/ui/DirectionAwareHover"
-import { projects } from "@/lib/data"
-import { cn } from "@/lib/utils"
+import { DirectionAwareHover } from "@/components/ui/DirectionAwareHover.tsx"
+import { projects } from "@/lib/data.ts"
+import { cn } from "@/lib/utils.ts"
 
 export default function ProjectsWrapper() {
   return (

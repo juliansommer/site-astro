@@ -17,7 +17,13 @@ import {
   SiTypescript,
 } from "react-icons/si"
 
-import type { Email, Experience, Project, Skill, Social } from "@/types"
+import type {
+  Email,
+  Experience,
+  Project,
+  Skill,
+  Social,
+} from "@/types/index.ts"
 
 export const experience: Experience[] = [
   {
