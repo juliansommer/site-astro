@@ -32,6 +32,7 @@ const { title, data } = Astro.props
             {experience.tech.length > 0 && (
               <div class="flex items-center gap-5">
                 {experience.tech.map((Icon) => (
+                  // @ts-expect-error Icon is component, issue with preact/compat
                   <Icon className="h-8 w-5 text-white" />
                 ))}
               </div>
