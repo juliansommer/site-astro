@@ -25,3 +25,9 @@
     }
   }
 }
+
+html,
+body {
+  background-color: black;
+  overscroll-behavior: none;
+}
