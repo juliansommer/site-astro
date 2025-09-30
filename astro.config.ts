@@ -1,4 +1,4 @@
-import react from "@astrojs/react"
+import preact from "@astrojs/preact"
 import vercel from "@astrojs/vercel"
 import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from "astro/config"
@@ -21,13 +21,7 @@ export default defineConfig({
       ],
     },
   },
-  integrations: [
-    react({
-      babel: {
-        plugins: [["babel-plugin-react-compiler"]],
-      },
-    }),
-  ],
+  integrations: [preact({ compat: true })],
   vite: {
     plugins: [tailwindcss()],
   },

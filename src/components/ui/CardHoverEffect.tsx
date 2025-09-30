@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react"
-import { useState } from "react"
+import { useState } from "preact/hooks"
 import type { IconType } from "react-icons"
 
 import { cn } from "@/lib/utils.ts"
@@ -45,6 +45,7 @@ export function HoverEffect({ items, className }: HoverEffectProps) {
             </AnimatePresence>
             <div className="relative z-20 w-full cursor-pointer overflow-hidden rounded-md bg-black p-4 ring-sky-500 transition-all duration-500 group-hover:ring-2">
               <div className="relative z-50 space-y-5 py-10">
+                {/* @ts-expect-error Icon is component, issue with preact/compat */}
                 <Icon className="mx-auto h-8 w-8 text-white" />
                 <p className="text-center text-2xl font-bold text-white">
                   {item.text}

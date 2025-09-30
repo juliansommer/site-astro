@@ -1,12 +1,13 @@
 import { AnimatePresence, motion } from "motion/react"
-import { useRef, useState } from "react"
+import type * as Preact from "preact"
+import { useRef, useState } from "preact/hooks"
 
 import { cn } from "@/lib/utils.ts"
 
 interface DirectionAwareHoverProps {
   imageUrl: string
   imageAlt: string
-  children: React.ReactNode | string
+  children: Preact.VNode | string
   childrenClassName?: string
   imageClassName?: string
   className?: string
@@ -26,9 +27,7 @@ export function DirectionAwareHover({
     "top" | "bottom" | "left" | "right"
   >("left")
 
-  const handleMouseEnter = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-  ) => {
+  const handleMouseEnter = (event: MouseEvent) => {
     if (!ref.current) return
 
     const direction = getDirection(event, ref.current)
@@ -51,10 +50,7 @@ export function DirectionAwareHover({
     }
   }
 
-  const getDirection = (
-    ev: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    obj: HTMLElement,
-  ) => {
+  const getDirection = (ev: MouseEvent, obj: HTMLElement) => {
     const { width: w, height: h, left, top } = obj.getBoundingClientRect()
     const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1)
     const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1)

@@ -17,6 +17,7 @@ export default function ProjectsWrapper() {
                 <h1 className="text-2xl font-bold">{project.title}</h1>
                 <div className="flex items-center gap-5">
                   {project.tech.map((Icon, index) => (
+                    // @ts-expect-error Icon is component, issue with preact/compat
                     <Icon key={index} className="h-8 w-5" />
                   ))}
                 </div>
