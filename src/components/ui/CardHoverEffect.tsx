@@ -19,7 +19,7 @@ export function CardHoverEffect({ items, className }: CardHoverEffectProps) {
 
   const itemRefs: HTMLDivElement[] = []
 
-  const getItemRect = (idx: number | null) => {
+  function getItemRect(idx: number | null) {
     if (idx === null || !itemRefs[idx]) return null
 
     const rect = itemRefs[idx].getBoundingClientRect()
@@ -35,7 +35,7 @@ export function CardHoverEffect({ items, className }: CardHoverEffectProps) {
     }
   }
 
-  const updateBackgroundPosition = (idx: number | null) => {
+  function updateBackgroundPosition(idx: number | null) {
     if (idx === null) {
       // Fade out when no item is hovered
       setBackgroundStyles((prev) => ({
@@ -54,14 +54,14 @@ export function CardHoverEffect({ items, className }: CardHoverEffectProps) {
     }
   }
 
-  const handleMouseEnter = (idx: number) => {
+  function handleMouseEnter(idx: number) {
     if (hoveredIndex() !== idx) {
       setHoveredIndex(idx)
       updateBackgroundPosition(idx)
     }
   }
 
-  const handleMouseLeave = () => {
+  function handleMouseLeave() {
     setHoveredIndex(null)
     updateBackgroundPosition(null)
   }

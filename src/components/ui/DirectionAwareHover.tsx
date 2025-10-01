@@ -1,7 +1,5 @@
-import { createSignal, Show, type JSX } from "solid-js"
-import { Motion, Presence } from "solid-motionone"
-
 import { cn } from "@/lib/utils.ts"
+import { createSignal, Show, type JSX } from "solid-js"
 
 interface DirectionAwareHoverProps {
   imageUrl: string
@@ -20,7 +18,7 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
   const [direction, setDirection] = createSignal<Direction>("initial")
   const [isHovered, setIsHovered] = createSignal(false)
 
-  const handleMouseEnter = (event: MouseEvent) => {
+  function handleMouseEnter(event: MouseEvent) {
     if (!ref) return
 
     setIsHovered(true)
@@ -44,12 +42,12 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
     }
   }
 
-  const handleMouseLeave = () => {
+  function handleMouseLeave() {
     setIsHovered(false)
-    setDirection("initial" as Direction)
+    setDirection("initial")
   }
 
-  const getDirection = (ev: MouseEvent, obj: HTMLElement) => {
+  function getDirection(ev: MouseEvent, obj: HTMLElement) {
     const { width: w, height: h, left, top } = obj.getBoundingClientRect()
     const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1)
     const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1)
@@ -57,8 +55,18 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
     return d
   }
 
+  function getImageTransform() {
+    const dir = direction()
+    if (dir === "initial") return "translate(0, 0)"
+    if (dir === "top") return "translateY(20px)"
+    if (dir === "bottom") return "translateY(-20px)"
+    if (dir === "left") return "translateX(20px)"
+    if (dir === "right") return "translateX(-20px)"
+    return "translate(0, 0)"
+  }
+
   return (
-    <Motion.div
+    <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={ref}
@@ -67,22 +75,20 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
         props.className,
       )}
     >
-      <Motion.div class="relative h-full w-full">
-        <Show when={isHovered()}>
-          <Motion.div
-            class="absolute inset-0 z-10 h-full w-full bg-black/40"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          />
-        </Show>
+      <div class="relative h-full w-full">
+        {/* Overlay */}
+        <div
+          class="absolute inset-0 z-10 h-full w-full bg-black/40 transition-opacity duration-300"
+          style={{
+            opacity: isHovered() ? "1" : "0",
+          }}
+        />
 
-        <Motion.div
-          animate={variants[direction()] || variants.initial}
-          class="relative h-full w-full"
-          transition={{
-            duration: 0.2,
+        {/* Image */}
+        <div
+          class="relative h-full w-full transition-transform duration-200"
+          style={{
+            transform: getImageTransform(),
           }}
         >
           <img
@@ -93,75 +99,23 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
             src={props.imageUrl}
             loading="lazy"
           />
-        </Motion.div>
+        </div>
 
-        <Presence>
-          <Show when={isHovered()}>
-            <Motion.div
-              initial={textVariants.initial}
-              animate={textVariants[direction()] || textVariants.initial}
-              exit={textVariants.exit}
-              transition={{
-                duration: 0.5,
-              }}
-              class={cn(
-                "absolute bottom-4 left-4 z-40 text-white",
-                props.childrenClassName,
-              )}
-            >
-              {props.children}
-            </Motion.div>
-          </Show>
-        </Presence>
-      </Motion.div>
-    </Motion.div>
+        {/* Content */}
+        <Show when={isHovered()}>
+          <div
+            class={cn(
+              "absolute bottom-4 left-4 z-40 text-white transition-opacity duration-500",
+              props.childrenClassName,
+            )}
+            style={{
+              opacity: isHovered() ? "1" : "0",
+            }}
+          >
+            {props.children}
+          </div>
+        </Show>
+      </div>
+    </div>
   )
-}
-
-const variants = {
-  initial: {
-    x: 0,
-    y: 0,
-  },
-  exit: {
-    x: 0,
-    y: 0,
-  },
-  top: {
-    y: 20,
-  },
-  bottom: {
-    y: -20,
-  },
-  left: {
-    x: 20,
-  },
-  right: {
-    x: -20,
-  },
-}
-
-const textVariants = {
-  initial: {
-    x: 0,
-    y: 0,
-    opacity: 0,
-  },
-  exit: {
-    x: 0,
-    y: 0,
-    opacity: 0,
-  },
-  top: {
-    opacity: 1,
-  },
-  bottom: {
-    opacity: 1,
-  },
-  left: {
-    opacity: 1,
-  },
-  right: {
-    opacity: 1,
-  },
 }

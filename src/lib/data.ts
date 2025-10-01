@@ -1,3 +1,4 @@
+import { FaBrandsJava } from "solid-icons/fa"
 import {
   SiDocker,
   SiFlask,
@@ -58,7 +59,7 @@ export const education: Experience[] = [
       "●	GPA: 6.25/7.00",
       "●	Related Coursework: Programming 1, Programming 2, Network Fundamentals, Database Fundamentals",
     ],
-    tech: [SiPython],
+    tech: [SiPython, FaBrandsJava],
   },
   {
     year: "Jan 2020 - Nov 2024",
