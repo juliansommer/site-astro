@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react"
-import type * as Preact from "preact"
+import type { ComponentChild } from "preact"
 import { useRef, useState } from "preact/hooks"
 
 import { cn } from "@/lib/utils.ts"
@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils.ts"
 interface DirectionAwareHoverProps {
   imageUrl: string
   imageAlt: string
-  children: Preact.VNode | string
+  children: ComponentChild
   childrenClassName?: string
   imageClassName?: string
   className?: string

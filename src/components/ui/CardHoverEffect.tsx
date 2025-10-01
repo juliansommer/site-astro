@@ -2,13 +2,10 @@ import { AnimatePresence, motion } from "motion/react"
 import { useState } from "preact/hooks"
 
 import { cn } from "@/lib/utils.ts"
-import type { PreactIcon } from "@/types/index.ts"
+import type { Skill } from "@/types/index.ts"
 
 interface HoverEffectProps {
-  items: {
-    text: string
-    Icon: PreactIcon
-  }[]
+  items: Skill[]
   className?: string
 }
 

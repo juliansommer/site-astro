@@ -1,11 +1,11 @@
 import type { JSX, SVGAttributes } from "preact"
 
-export type PreactIconProps = {
+export interface PreactIconProps extends SVGAttributes<SVGElement> {
   className?: string
   size?: string | number
   color?: string
   title?: string
-} & SVGAttributes<SVGElement>
+}
 
 export type PreactIcon = (props: PreactIconProps) => JSX.Element
 
