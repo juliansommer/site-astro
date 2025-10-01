@@ -1,16 +1,25 @@
-import type { IconType } from "react-icons"
+import type { JSX, SVGAttributes } from "preact"
+
+export type PreactIconProps = {
+  className?: string
+  size?: string | number
+  color?: string
+  title?: string
+} & SVGAttributes<SVGElement>
+
+export type PreactIcon = (props: PreactIconProps) => JSX.Element
 
 export interface Experience {
   year: string
   role: string
   company: string
   description: string[]
-  tech: IconType[]
+  tech: PreactIcon[]
 }
 
 export interface Project {
   title: string
-  tech: IconType[]
+  tech: PreactIcon[]
   link: string
   cover: string
   background: string
@@ -18,13 +27,13 @@ export interface Project {
 
 export interface Skill {
   text: string
-  Icon: IconType
+  Icon: PreactIcon
 }
 
 export interface Social {
   link: string
   label: string
-  Icon: IconType
+  Icon: PreactIcon
 }
 
 export type Email = `${string}@${string}.${string}`

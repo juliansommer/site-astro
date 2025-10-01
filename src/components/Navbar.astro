@@ -21,7 +21,6 @@ const { className } = Astro.props
         const Icon = social.Icon
         return (
           <a href={social.link} aria-label={social.label}>
-            {/* @ts-expect-error Icon is component, issue with preact/compat */}
             <Icon className="h-5 w-5 text-white transition-all hover:scale-125" />
           </a>
         )
