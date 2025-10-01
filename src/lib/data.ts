@@ -1,4 +1,3 @@
-import { FaJava } from "react-icons/fa"
 import {
   SiDocker,
   SiFlask,
@@ -15,7 +14,7 @@ import {
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
-} from "react-icons/si"
+} from "solid-icons/si"
 
 import type {
   Email,
@@ -59,7 +58,7 @@ export const education: Experience[] = [
       "●	GPA: 6.25/7.00",
       "●	Related Coursework: Programming 1, Programming 2, Network Fundamentals, Database Fundamentals",
     ],
-    tech: [SiPython, FaJava],
+    tech: [SiPython],
   },
   {
     year: "Jan 2020 - Nov 2024",

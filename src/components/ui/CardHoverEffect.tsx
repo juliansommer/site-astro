@@ -1,56 +1,124 @@
-import { AnimatePresence, motion } from "motion/react"
-import { useState } from "preact/hooks"
-
 import { cn } from "@/lib/utils.ts"
 import type { Skill } from "@/types/index.ts"
+import { createSignal, For, onCleanup, onMount } from "solid-js"
 
-interface HoverEffectProps {
+interface CardHoverEffectProps {
   items: Skill[]
   className?: string
 }
 
-export function HoverEffect({ items, className }: HoverEffectProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+export function CardHoverEffect({ items, className }: CardHoverEffectProps) {
+  const [hoveredIndex, setHoveredIndex] = createSignal<number | null>(null)
+  const [backgroundStyles, setBackgroundStyles] = createSignal({
+    left: "0px",
+    top: "0px",
+    width: "0px",
+    height: "0px",
+    opacity: 0,
+  })
+
+  const itemRefs: HTMLDivElement[] = []
+
+  const getItemRect = (idx: number | null) => {
+    if (idx === null || !itemRefs[idx]) return null
+
+    const rect = itemRefs[idx].getBoundingClientRect()
+    const containerRect = itemRefs[
+      idx
+    ].parentElement?.getBoundingClientRect() || { left: 0, top: 0 }
+
+    return {
+      left: `${rect.left - containerRect.left}px`,
+      top: `${rect.top - containerRect.top}px`,
+      width: `${rect.width}px`,
+      height: `${rect.height}px`,
+    }
+  }
+
+  const updateBackgroundPosition = (idx: number | null) => {
+    if (idx === null) {
+      // Fade out when no item is hovered
+      setBackgroundStyles((prev) => ({
+        ...prev,
+        opacity: 0,
+      }))
+      return
+    }
+
+    const rect = getItemRect(idx)
+    if (rect) {
+      setBackgroundStyles({
+        ...rect,
+        opacity: 1,
+      })
+    }
+  }
+
+  const handleMouseEnter = (idx: number) => {
+    if (hoveredIndex() !== idx) {
+      setHoveredIndex(idx)
+      updateBackgroundPosition(idx)
+    }
+  }
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null)
+    updateBackgroundPosition(null)
+  }
+
+  // Update positions on resize
+  onMount(() => {
+    const handleResize = () => {
+      const current = hoveredIndex()
+      if (current !== null) {
+        updateBackgroundPosition(current)
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+    onCleanup(() => {
+      window.removeEventListener("resize", handleResize)
+    })
+  })
 
   return (
-    <div className={cn("grid grid-cols-2 py-10", className)}>
-      {items.map((item, idx) => {
-        const Icon = item.Icon
-        return (
-          <div
-            key={idx}
-            className="group relative block h-full w-full p-2"
-            onMouseEnter={() => setHoveredIndex(idx)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <AnimatePresence>
-              {hoveredIndex === idx && (
-                <motion.span
-                  className="absolute inset-0 block h-full w-full rounded-lg bg-slate-800/[0.8]"
-                  layoutId="hoverBackground"
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: 1,
-                    transition: { duration: 0.15 },
-                  }}
-                  exit={{
-                    opacity: 0,
-                    transition: { duration: 0.15, delay: 0.2 },
-                  }}
-                />
-              )}
-            </AnimatePresence>
-            <div className="relative z-20 w-full cursor-pointer overflow-hidden rounded-md bg-black p-4 ring-sky-500 transition-all duration-500 group-hover:ring-2">
-              <div className="relative z-50 space-y-5 py-10">
-                <Icon className="mx-auto h-8 w-8 text-white" />
-                <p className="text-center text-2xl font-bold text-white">
-                  {item.text}
-                </p>
+    <div class={cn("relative grid grid-cols-2 py-10", className)}>
+      {/* Always present background element with CSS transitions */}
+      <span
+        class="absolute z-10 block rounded-lg bg-slate-800/[0.8]"
+        style={{
+          left: backgroundStyles().left,
+          top: backgroundStyles().top,
+          width: backgroundStyles().width,
+          height: backgroundStyles().height,
+          opacity: backgroundStyles().opacity,
+          transition:
+            "left 0.3s ease-out, top 0.3s ease-out, width 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out",
+        }}
+      />
+
+      <For each={items}>
+        {(item, idx) => {
+          const Icon = item.Icon
+          return (
+            <div
+              class="group relative block h-full w-full p-2"
+              ref={(el) => (itemRefs[idx()] = el)}
+              onMouseEnter={() => handleMouseEnter(idx())}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div class="relative z-20 w-full cursor-pointer overflow-hidden rounded-md bg-black p-4 ring-sky-500 transition-all duration-500 group-hover:ring-2">
+                <div class="relative z-50 space-y-5 py-10">
+                  <Icon class="mx-auto h-8 w-8 text-white" />
+                  <p class="text-center text-2xl font-bold text-white">
+                    {item.text}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        }}
+      </For>
     </div>
   )
 }

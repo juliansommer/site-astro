@@ -14,15 +14,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/preact": "^4.1.1",
+    "@astrojs/solid-js": "^5.1.1",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.14.1",
     "clsx": "^2.1.1",
-    "motion": "^12.23.22",
-    "preact": "^10.27.2",
-    "react": "npm:@preact/compat",
-    "react-dom": "npm:@preact/compat",
-    "react-icons": "^5.5.0",
+    "solid-icons": "^1.1.0",
+    "solid-js": "^1.9.9",
+    "solid-motionone": "^1.0.4",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {

@@ -1,9 +1,9 @@
-import preact from "@astrojs/preact"
+import solidJs from "@astrojs/solid-js"
 import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from "astro/config"
 
 export default defineConfig({
-  integrations: [preact({ compat: true })],
+  integrations: [solidJs()],
   vite: {
     plugins: [tailwindcss()],
   },

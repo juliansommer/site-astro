@@ -1,25 +1,16 @@
-import type { JSX, SVGAttributes } from "preact"
-
-export interface PreactIconProps extends SVGAttributes<SVGElement> {
-  className?: string
-  size?: string | number
-  color?: string
-  title?: string
-}
-
-export type PreactIcon = (props: PreactIconProps) => JSX.Element
+import type { IconTypes } from "solid-icons"
 
 export interface Experience {
   year: string
   role: string
   company: string
   description: string[]
-  tech: PreactIcon[]
+  tech: IconTypes[]
 }
 
 export interface Project {
   title: string
-  tech: PreactIcon[]
+  tech: IconTypes[]
   link: string
   cover: string
   background: string
@@ -27,13 +18,13 @@ export interface Project {
 
 export interface Skill {
   text: string
-  Icon: PreactIcon
+  Icon: IconTypes
 }
 
 export interface Social {
   link: string
   label: string
-  Icon: PreactIcon
+  Icon: IconTypes
 }
 
 export type Email = `${string}@${string}.${string}`

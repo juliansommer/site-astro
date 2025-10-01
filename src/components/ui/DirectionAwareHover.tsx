@@ -1,37 +1,31 @@
-import { AnimatePresence, motion } from "motion/react"
-import type { ComponentChild } from "preact"
-import { useRef, useState } from "preact/hooks"
+import { createSignal, Show, type JSX } from "solid-js"
+import { Motion, Presence } from "solid-motionone"
 
 import { cn } from "@/lib/utils.ts"
 
 interface DirectionAwareHoverProps {
   imageUrl: string
   imageAlt: string
-  children: ComponentChild
+  children: JSX.Element
   childrenClassName?: string
   imageClassName?: string
   className?: string
 }
 
-export function DirectionAwareHover({
-  imageUrl,
-  imageAlt,
-  children,
-  childrenClassName,
-  imageClassName,
-  className,
-}: DirectionAwareHoverProps) {
-  const ref = useRef<HTMLDivElement>(null)
+type Direction = "top" | "bottom" | "left" | "right" | "initial"
 
-  const [direction, setDirection] = useState<
-    "top" | "bottom" | "left" | "right"
-  >("left")
+export function DirectionAwareHover(props: DirectionAwareHoverProps) {
+  let ref: HTMLDivElement | undefined
+
+  const [direction, setDirection] = createSignal<Direction>("initial")
+  const [isHovered, setIsHovered] = createSignal(false)
 
   const handleMouseEnter = (event: MouseEvent) => {
-    if (!ref.current) return
+    if (!ref) return
 
-    const direction = getDirection(event, ref.current)
-    switch (direction) {
+    setIsHovered(true)
+    const directionValue = getDirection(event, ref)
+    switch (directionValue) {
       case 0:
         setDirection("top")
         break
@@ -50,6 +44,11 @@ export function DirectionAwareHover({
     }
   }
 
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+    setDirection("initial" as Direction)
+  }
+
   const getDirection = (ev: MouseEvent, obj: HTMLElement) => {
     const { width: w, height: h, left, top } = obj.getBoundingClientRect()
     const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1)
@@ -59,61 +58,70 @@ export function DirectionAwareHover({
   }
 
   return (
-    <motion.div
+    <Motion.div
       onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       ref={ref}
-      className={cn(
+      class={cn(
         "group/card relative overflow-hidden rounded-lg bg-transparent",
-        className,
+        props.className,
       )}
     >
-      <AnimatePresence mode="wait">
-        <motion.div
-          className="relative h-full w-full"
-          initial="initial"
-          whileHover={direction}
-          exit="exit"
+      <Motion.div class="relative h-full w-full">
+        <Show when={isHovered()}>
+          <Motion.div
+            class="absolute inset-0 z-10 h-full w-full bg-black/40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          />
+        </Show>
+
+        <Motion.div
+          animate={variants[direction()] || variants.initial}
+          class="relative h-full w-full"
+          transition={{
+            duration: 0.2,
+          }}
         >
-          <motion.div className="absolute inset-0 z-10 hidden h-full w-full bg-black/40 transition duration-500 group-hover/card:block" />
-          <motion.div
-            variants={variants}
-            className="relative h-full w-full"
-            transition={{
-              duration: 0.2,
-              ease: "easeOut",
-            }}
-          >
-            <img
-              alt={imageAlt}
-              className={cn("scale-[1.15] object-cover", imageClassName)}
-              width="1000"
-              height="1000"
-              src={imageUrl}
-              loading="lazy"
-            />
-          </motion.div>
-          <motion.div
-            variants={textVariants}
-            transition={{
-              duration: 0.5,
-              ease: "easeOut",
-            }}
-            className={cn(
-              "absolute bottom-4 left-4 z-40 text-white",
-              childrenClassName,
-            )}
-          >
-            {children}
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
-    </motion.div>
+          <img
+            alt={props.imageAlt}
+            class={cn("scale-[1.15] object-cover", props.imageClassName)}
+            width="1000"
+            height="1000"
+            src={props.imageUrl}
+            loading="lazy"
+          />
+        </Motion.div>
+
+        <Presence>
+          <Show when={isHovered()}>
+            <Motion.div
+              initial={textVariants.initial}
+              animate={textVariants[direction()] || textVariants.initial}
+              exit={textVariants.exit}
+              transition={{
+                duration: 0.5,
+              }}
+              class={cn(
+                "absolute bottom-4 left-4 z-40 text-white",
+                props.childrenClassName,
+              )}
+            >
+              {props.children}
+            </Motion.div>
+          </Show>
+        </Presence>
+      </Motion.div>
+    </Motion.div>
   )
 }
 
 const variants = {
   initial: {
     x: 0,
+    y: 0,
   },
   exit: {
     x: 0,
@@ -135,13 +143,13 @@ const variants = {
 
 const textVariants = {
   initial: {
-    y: 0,
     x: 0,
+    y: 0,
     opacity: 0,
   },
   exit: {
-    y: 0,
     x: 0,
+    y: 0,
     opacity: 0,
   },
   top: {
