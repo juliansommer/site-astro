@@ -1,5 +1,6 @@
-import { DirectionAwareHover } from "@/components/ui/DirectionAwareHover.tsx"
 import { projects } from "@/lib/data.ts"
+import { DirectionAwareHover } from "./ui/DirectionAwareHover.tsx"
+
 import { For } from "solid-js"
 
 export default function ProjectsWrapper() {
