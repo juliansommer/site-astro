@@ -43,22 +43,9 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
     setDirection("initial")
   }
 
-  function getDirection(ev: MouseEvent, obj: HTMLElement) {
-    const { width: w, height: h, left, top } = obj.getBoundingClientRect()
-    const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1)
-    const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1)
-    const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4
-    return d
-  }
-
   function getImageTransform() {
     const dir = direction()
-    if (dir === "initial") return "translate(0, 0)"
-    if (dir === "top") return "translateY(20px)"
-    if (dir === "bottom") return "translateY(-20px)"
-    if (dir === "left") return "translateX(20px)"
-    if (dir === "right") return "translateX(-20px)"
-    return "translate(0, 0)"
+    return transformMap[dir]
   }
 
   return (
@@ -108,4 +95,20 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
       </div>
     </div>
   )
+}
+
+function getDirection(ev: MouseEvent, obj: HTMLElement) {
+  const { width: w, height: h, left, top } = obj.getBoundingClientRect()
+  const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1)
+  const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1)
+  const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4
+  return d
+}
+
+const transformMap = {
+  initial: "translate(0, 0)",
+  top: "translateY(20px)",
+  bottom: "translateY(-20px)",
+  left: "translateX(20px)",
+  right: "translateX(-20px)",
 }
