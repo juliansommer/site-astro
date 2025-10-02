@@ -1,6 +1,6 @@
 ---
-import { SkillsWrapper } from "./SkillsWrapper.tsx"
 import Title from "./Title.astro"
+import { CardHoverEffect } from "./ui/CardHoverEffect"
 ---
 
 <div class="mx-auto max-w-3xl pt-22">
@@ -8,5 +8,5 @@ import Title from "./Title.astro"
     text="Skills 🛠️"
     className="flex flex-col items-center justify-center"
   />
-  <SkillsWrapper client:load />
+  <CardHoverEffect client:load />
 </div>

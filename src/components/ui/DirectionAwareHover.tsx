@@ -1,13 +1,9 @@
-import { cn } from "@/lib/utils.ts"
 import { createSignal, Show, type JSX } from "solid-js"
 
 interface DirectionAwareHoverProps {
   imageUrl: string
   imageAlt: string
   children: JSX.Element
-  childrenClassName?: string
-  imageClassName?: string
-  className?: string
 }
 
 type Direction = "top" | "bottom" | "left" | "right" | "initial"
@@ -70,10 +66,7 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={ref}
-      class={cn(
-        "group/card relative overflow-hidden rounded-lg bg-transparent",
-        props.className,
-      )}
+      class="group/card relative w-full cursor-pointer space-y-5 overflow-hidden rounded-lg bg-transparent"
     >
       <div class="relative h-full w-full">
         {/* Overlay */}
@@ -93,7 +86,7 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
         >
           <img
             alt={props.imageAlt}
-            class={cn("scale-[1.15] object-cover", props.imageClassName)}
+            class="scale-[1.15] object-cover"
             width="1000"
             height="1000"
             src={props.imageUrl}
@@ -104,10 +97,7 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
         {/* Content */}
         <Show when={isHovered()}>
           <div
-            class={cn(
-              "absolute bottom-4 left-4 z-40 text-white transition-opacity duration-500",
-              props.childrenClassName,
-            )}
+            class="absolute bottom-4 left-4 z-40 text-white transition-opacity duration-500"
             style={{
               opacity: isHovered() ? "1" : "0",
             }}

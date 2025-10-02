@@ -1,13 +1,8 @@
-import { cn } from "@/lib/utils.ts"
-import type { Skill } from "@/types/index.ts"
+import { skills as items } from "@/lib/data.ts"
+
 import { createSignal, For, onCleanup, onMount } from "solid-js"
 
-interface CardHoverEffectProps {
-  items: Skill[]
-  className?: string
-}
-
-export function CardHoverEffect({ items, className }: CardHoverEffectProps) {
+export function CardHoverEffect() {
   const [hoveredIndex, setHoveredIndex] = createSignal<number | null>(null)
   const [backgroundStyles, setBackgroundStyles] = createSignal({
     left: "0px",
@@ -82,7 +77,7 @@ export function CardHoverEffect({ items, className }: CardHoverEffectProps) {
   })
 
   return (
-    <div class={cn("relative grid grid-cols-2 py-10", className)}>
+    <div class="relative grid grid-cols-2 py-10">
       {/* Always present background element with CSS transitions */}
       <span
         class="absolute z-10 block rounded-lg bg-slate-800/[0.8]"
