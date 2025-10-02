@@ -104,10 +104,8 @@ export function CardHoverEffect() {
             >
               <div class="relative z-20 w-full cursor-pointer overflow-hidden rounded-md bg-black p-4 ring-sky-500 transition-all duration-500 group-hover:ring-2">
                 <div class="relative z-50 space-y-5 py-10">
-                  <Icon class="mx-auto h-8 w-8 text-white" />
-                  <p class="text-center text-2xl font-bold text-white">
-                    {item.text}
-                  </p>
+                  <Icon class="mx-auto h-8 w-8" />
+                  <p class="text-center text-2xl font-bold">{item.text}</p>
                 </div>
               </div>
             </div>

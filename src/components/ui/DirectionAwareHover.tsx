@@ -97,7 +97,7 @@ export function DirectionAwareHover(props: DirectionAwareHoverProps) {
         {/* Content */}
         <Show when={isHovered()}>
           <div
-            class="absolute bottom-4 left-4 z-40 text-white transition-opacity duration-500"
+            class="absolute bottom-4 left-4 z-40 transition-opacity duration-500"
             style={{
               opacity: isHovered() ? "1" : "0",
             }}
