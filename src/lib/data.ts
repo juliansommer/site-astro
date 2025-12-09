@@ -44,7 +44,6 @@ export const experience: Experience[] = [
       SiTypescript,
       SiGo,
       SiMongodb,
-      SiTailwindcss,
       SiDocker,
     ],
   },
@@ -86,21 +85,14 @@ export const education: Experience[] = [
 export const projects: Project[] = [
   {
     title: "Workout Track",
-    tech: [
-      SiNextdotjs,
-      SiReact,
-      SiTypescript,
-      SiPython,
-      SiTailwindcss,
-      SiSupabase,
-    ],
+    tech: [SiNextdotjs, SiReact, SiTypescript, SiPython, SiSupabase],
     link: "https://github.com/juliansommer/workout-track",
     cover: "images/workout-track.webp",
     background: "bg-sky-500",
   },
   {
     title: "Prompts",
-    tech: [SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiMongodb],
+    tech: [SiNextdotjs, SiReact, SiTypescript, SiMongodb],
     link: "https://github.com/juliansommer/prompts",
     cover: "images/prompts.webp",
     background: "bg-sky-500",
@@ -123,8 +115,12 @@ export const projects: Project[] = [
 
 export const skills: Skill[] = [
   {
-    text: "Python",
-    Icon: SiPython,
+    text: "Go",
+    Icon: SiGo,
+  },
+  {
+    text: "TypeScript",
+    Icon: SiTypescript,
   },
   {
     text: "React",
@@ -135,20 +131,8 @@ export const skills: Skill[] = [
     Icon: SiNextdotjs,
   },
   {
-    text: "JavaScript",
-    Icon: SiJavascript,
-  },
-  {
-    text: "TypeScript",
-    Icon: SiTypescript,
-  },
-  {
-    text: "Go",
-    Icon: SiGo,
-  },
-  {
-    text: "TailwindCSS",
-    Icon: SiTailwindcss,
+    text: "Python",
+    Icon: SiPython,
   },
   {
     text: "Docker",
