@@ -55,7 +55,7 @@ export const education: Experience[] = [
     role: "Bachelor of Computing Science",
     company: "University of Technology Sydney",
     description: [
-      "●	GPA: 6.25/7.00",
+      "●	GPA: 6.50/7.00",
       "●	Related Coursework: Programming 1, Programming 2, Network Fundamentals, Database Fundamentals",
     ],
     tech: [SiPython, FaBrandsJava],
