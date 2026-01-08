@@ -5,7 +5,6 @@ import {
   SiGithub,
   SiGo,
   SiHtml5,
-  SiJavascript,
   SiLinkedin,
   SiMongodb,
   SiNextdotjs,
@@ -13,7 +12,6 @@ import {
   SiReact,
   SiSqlite,
   SiSupabase,
-  SiTailwindcss,
   SiTypescript,
 } from "solid-icons/si"
 
@@ -26,6 +24,20 @@ import type {
 } from "@/types/index.ts"
 
 export const experience: Experience[] = [
+  {
+    year: "Nov 2025 - Present",
+    role: "Software Engineer",
+    company: "Mulga",
+    description: [
+      ""
+    ],
+    tech: [
+      SiTypescript,
+      SiReact,
+      SiGo,
+      SiPython
+    ],
+  },
   {
     year: "Sep 2023 - Dec 2024",
     role: "Junior Full Stack Developer",
