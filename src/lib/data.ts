@@ -32,9 +32,9 @@ export const experience: Experience[] = [
       ""
     ],
     tech: [
+      SiGo,
       SiTypescript,
       SiReact,
-      SiGo,
       SiPython
     ],
   },
@@ -50,12 +50,11 @@ export const experience: Experience[] = [
       "●	Used GitHub Actions with Docker to containerize the website and upload the image to GitHub Packages for CI/CD",
     ],
     tech: [
-      SiPython,
+      SiGo,
+      SiTypescript,
       SiReact,
       SiNextdotjs,
-      SiTypescript,
-      SiGo,
-      SiMongodb,
+      SiPython,
       SiDocker,
     ],
   },
@@ -67,8 +66,8 @@ export const education: Experience[] = [
     role: "Bachelor of Computing Science",
     company: "University of Technology Sydney",
     description: [
+      "●	Major: Enterprise Software Development",
       "●	GPA: 6.50/7.00",
-      "●	Related Coursework: Programming 1, Programming 2, Network Fundamentals, Database Fundamentals",
     ],
     tech: [SiPython, FaBrandsJava],
   },
@@ -88,7 +87,6 @@ export const education: Experience[] = [
     company: "TAFE Queensland",
     description: [
       "●	Major: Cybersecurity",
-      "●	Related Coursework: Apply introductory programming techniques",
     ],
     tech: [SiPython],
   },
@@ -110,17 +108,17 @@ export const projects: Project[] = [
     background: "bg-sky-500",
   },
   {
-    title: "Imgur Scan",
-    tech: [SiPython],
-    link: "https://github.com/juliansommer/obsidian-imgur-scan",
-    cover: "images/imgur-scan.webp",
-    background: "bg-purple-500",
-  },
-  {
     title: "GitHub Activity",
     tech: [SiGo],
     link: "https://github.com/juliansommer/github-activity",
     cover: "images/github-activity.webp",
+    background: "bg-purple-500",
+  },
+  {
+    title: "Imgur Scan",
+    tech: [SiPython],
+    link: "https://github.com/juliansommer/obsidian-imgur-scan",
+    cover: "images/imgur-scan.webp",
     background: "bg-purple-500",
   },
 ]
