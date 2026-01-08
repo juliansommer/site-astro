@@ -27,7 +27,7 @@ export const experience: Experience[] = [
   {
     year: "Nov 2025 - Present",
     role: "Software Engineer",
-    company: "Mulga",
+    company: "Mulga Defence Corporation",
     description: [
       ""
     ],
