@@ -13,6 +13,7 @@ import {
   SiSqlite,
   SiSupabase,
   SiTypescript,
+  SiAmazonaws,
 } from "solid-icons/si"
 
 import type {
@@ -29,13 +30,19 @@ export const experience: Experience[] = [
     role: "Junior Systems Engineer",
     company: "Mulga Defense Corporation",
     description: [
-      ""
+      "●	Built 50+ AWS compatible API actions from scratch",
+      "●	Built a feature compliant AWS service management dashboard",
+      "●	Implemented comprehensive E2E test suite covering all AWS commands",
+      "●	Created CI pipelines for testing, linting and security",
+      "●	Improved code coverage by 70%",
     ],
     tech: [
       SiGo,
       SiTypescript,
       SiReact,
-      SiPython
+      SiPython,
+      SiAmazonaws,
+      SiDocker,
     ],
   },
   {
@@ -137,12 +144,12 @@ export const skills: Skill[] = [
     Icon: SiReact,
   },
   {
-    text: "Next.js",
-    Icon: SiNextdotjs,
-  },
-  {
     text: "Python",
     Icon: SiPython,
+  },
+  {
+    text: "AWS",
+    Icon: SiAmazonaws,
   },
   {
     text: "Docker",
