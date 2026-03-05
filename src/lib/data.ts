@@ -34,7 +34,7 @@ export const experience: Experience[] = [
       "●	Built a feature compliant AWS service management dashboard",
       "●	Implemented comprehensive E2E test suite covering all AWS commands",
       "●	Created CI pipelines for testing, linting and security",
-      "●	Improved code coverage by 70%",
+      "●	Improved code coverage by 85%",
     ],
     tech: [
       SiGo,
