@@ -9,28 +9,28 @@
     "astro": "astro",
     "format": "prettier --write **/*.{astro,css,json,md,ts,tsx} --ignore-path .gitignore",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "fix": "eslint . --fix"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^5.1.3",
-    "@tailwindcss/vite": "^4.2.1",
-    "astro": "^5.18.0",
+    "@astrojs/solid-js": "^6.0.1",
+    "@tailwindcss/vite": "^4.2.4",
+    "astro": "^6.1.9",
     "solid-icons": "1.1.0",
-    "solid-js": "^1.9.11",
-    "tailwindcss": "^4.2.1"
+    "solid-js": "^1.9.12",
+    "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/parser": "^8.56.1",
-    "eslint": "^10.0.2",
-    "eslint-plugin-astro": "^1.6.0",
+    "@typescript-eslint/parser": "^8.59.0",
+    "eslint": "^10.2.1",
+    "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "prettier": "3.8.1",
-    "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-astro-organize-imports": "^0.4.11",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.1"
+    "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-astro-organize-imports": "^0.4.12",
+    "prettier-plugin-tailwindcss": "^0.7.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.0"
   },
-  "packageManager": "pnpm@10.30.3+sha512.c961d1e0a2d8e354ecaa5166b822516668b7f44cb5bd95122d590dd81922f606f5473b6d23ec4a5be05e7fcd18e8488d47d978bbe981872f1145d06e9a740017"
+  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8"
 }

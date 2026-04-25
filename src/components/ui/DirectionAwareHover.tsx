@@ -9,6 +9,7 @@ interface DirectionAwareHoverProps {
 type Direction = "top" | "bottom" | "left" | "right" | "initial"
 
 export function DirectionAwareHover(props: DirectionAwareHoverProps) {
+  // eslint-disable-next-line no-unassigned-vars
   let ref: HTMLDivElement | undefined
 
   const [direction, setDirection] = createSignal<Direction>("initial")
