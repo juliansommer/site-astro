@@ -80,7 +80,7 @@ export function CardHoverEffect() {
     <div class="relative grid grid-cols-2 py-10">
       {/* Always present background element with CSS transitions */}
       <span
-        class="absolute z-10 block rounded-lg bg-slate-800/[0.8]"
+        class="absolute z-10 block rounded-lg bg-slate-800/80"
         style={{
           left: backgroundStyles().left,
           top: backgroundStyles().top,
