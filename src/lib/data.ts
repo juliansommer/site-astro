@@ -28,7 +28,7 @@ export const experience: Experience[] = [
   {
     year: "Nov 2025 - Present",
     role: "Junior Systems Engineer",
-    company: "Mulga Defense Corporation",
+    company: "Mulga",
     description: [
       "●	Built 50+ AWS compatible API actions from scratch",
       "●	Built a feature compliant AWS service management dashboard",
@@ -74,7 +74,7 @@ export const education: Experience[] = [
     company: "University of Technology Sydney",
     description: [
       "●	Major: Enterprise Software Development",
-      "●	GPA: 6.50/7.00",
+      "●	GPA: 6.42/7.00",
     ],
     tech: [SiPython, FaBrandsJava],
   },
