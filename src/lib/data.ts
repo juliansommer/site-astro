@@ -30,7 +30,7 @@ export const experience: Experience[] = [
     role: "Junior Systems Engineer",
     company: "Mulga",
     description: [
-      "●	Built 50+ AWS compatible API actions from scratch",
+      "●	Built 100+ AWS compatible API actions from scratch",
       "●	Built a feature compliant AWS service management dashboard",
       "●	Implemented comprehensive E2E test suite covering all AWS commands",
       "●	Created CI pipelines for testing, linting and security",
