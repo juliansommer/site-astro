@@ -1,3 +1,8 @@
+import githubActivityCover from "@/assets/github-activity.webp"
+import imgurScanCover from "@/assets/imgur-scan.webp"
+import promptsCover from "@/assets/prompts.webp"
+import workoutTrackCover from "@/assets/workout-track.webp"
+
 import { FaBrandsJava } from "solid-icons/fa"
 import {
   SiDocker,
@@ -36,14 +41,7 @@ export const experience: Experience[] = [
       "●	Created CI pipelines for testing, linting and security",
       "●	Improved code coverage by 100%",
     ],
-    tech: [
-      SiGo,
-      SiTypescript,
-      SiReact,
-      SiPython,
-      SiAmazonaws,
-      SiDocker,
-    ],
+    tech: [SiGo, SiTypescript, SiReact, SiPython, SiAmazonaws, SiDocker],
   },
   {
     year: "Sep 2023 - Dec 2024",
@@ -56,14 +54,7 @@ export const experience: Experience[] = [
       "●	Used Next.js with TypeScript to dynamically create web pages for the most popular categories and vendors",
       "●	Used GitHub Actions with Docker to containerize the website and upload the image to GitHub Packages for CI/CD",
     ],
-    tech: [
-      SiGo,
-      SiTypescript,
-      SiReact,
-      SiNextdotjs,
-      SiPython,
-      SiDocker,
-    ],
+    tech: [SiGo, SiTypescript, SiReact, SiNextdotjs, SiPython, SiDocker],
   },
 ]
 
@@ -72,10 +63,7 @@ export const education: Experience[] = [
     year: "Expected Graduation Nov 2027",
     role: "Bachelor of Computing Science",
     company: "University of Technology Sydney",
-    description: [
-      "●	Major: Enterprise Software Development",
-      "●	GPA: 6.42/7.00",
-    ],
+    description: ["●	Major: Enterprise Software Development", "●	GPA: 6.42/7.00"],
     tech: [SiPython, FaBrandsJava],
   },
   {
@@ -92,9 +80,7 @@ export const education: Experience[] = [
     year: "Jan 2022 - Sep 2023",
     role: "Certificate 3 of Information Technology ICT30120",
     company: "TAFE Queensland",
-    description: [
-      "●	Major: Cybersecurity",
-    ],
+    description: ["●	Major: Cybersecurity"],
     tech: [SiPython],
   },
 ]
@@ -104,28 +90,28 @@ export const projects: Project[] = [
     title: "Workout Track",
     tech: [SiNextdotjs, SiReact, SiTypescript, SiPython, SiSupabase],
     link: "https://github.com/juliansommer/workout-track",
-    cover: "images/workout-track.webp",
+    cover: workoutTrackCover.src,
     background: "bg-sky-500",
   },
   {
     title: "Prompts",
     tech: [SiNextdotjs, SiReact, SiTypescript, SiMongodb],
     link: "https://github.com/juliansommer/prompts",
-    cover: "images/prompts.webp",
+    cover: promptsCover.src,
     background: "bg-sky-500",
   },
   {
     title: "GitHub Activity",
     tech: [SiGo],
     link: "https://github.com/juliansommer/github-activity",
-    cover: "images/github-activity.webp",
+    cover: githubActivityCover.src,
     background: "bg-purple-500",
   },
   {
     title: "Imgur Scan",
     tech: [SiPython],
     link: "https://github.com/juliansommer/obsidian-imgur-scan",
-    cover: "images/imgur-scan.webp",
+    cover: imgurScanCover.src,
     background: "bg-purple-500",
   },
 ]
