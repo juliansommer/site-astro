@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Australia/Sydney
+    cooldown:
+      default-days: 3
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "solid-icons"
+          - "typescript"
