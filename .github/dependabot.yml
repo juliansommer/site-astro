@@ -8,10 +8,10 @@ updates:
       timezone: Australia/Sydney
     cooldown:
       default-days: 3
+    ignore:
+      - dependency-name: "solid-icons"
+      - dependency-name: "typescript"
     groups:
       npm-dependencies:
         patterns:
           - "*"
-        exclude-patterns:
-          - "solid-icons"
-          - "typescript"
