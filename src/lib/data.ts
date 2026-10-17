@@ -1,8 +1,3 @@
-import imgurScanCover from "@/assets/imgur-scan.webp"
-import promptsCover from "@/assets/prompts.webp"
-import sydneySuburbsCover from "@/assets/sydney-suburbs.webp"
-import workoutTrackCover from "@/assets/workout-track.webp"
-
 import { FaBrandsJava } from "solid-icons/fa"
 import {
   SiDocker,
@@ -23,6 +18,10 @@ import {
   SiAmazonaws,
 } from "solid-icons/si"
 
+import imgurScanCover from "@/assets/imgur-scan.webp"
+import promptsCover from "@/assets/prompts.webp"
+import sydneySuburbsCover from "@/assets/sydney-suburbs.webp"
+import workoutTrackCover from "@/assets/workout-track.webp"
 import type {
   Email,
   Experience,
@@ -65,7 +64,10 @@ export const education: Experience[] = [
     year: "Expected Graduation Nov 2027",
     role: "Bachelor of Computing Science",
     company: "University of Technology Sydney",
-    description: ["●	Major: Enterprise Software Development", "●	GPA: 6.42/7.00"],
+    description: [
+      "●	Major: Enterprise Software Development",
+      "●	GPA: 6.42/7.00",
+    ],
     tech: [SiPython, FaBrandsJava],
   },
   {

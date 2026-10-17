@@ -1,6 +1,6 @@
-import { skills as items } from "@/lib/data.ts"
-
 import { createSignal, For, onCleanup, onMount } from "solid-js"
+
+import { skills as items } from "@/lib/data.ts"
 
 export function CardHoverEffect() {
   const [hoveredIndex, setHoveredIndex] = createSignal<number | null>(null)
@@ -20,7 +20,10 @@ export function CardHoverEffect() {
     const rect = itemRefs[idx].getBoundingClientRect()
     const containerRect = itemRefs[
       idx
-    ].parentElement?.getBoundingClientRect() || { left: 0, top: 0 }
+    ].parentElement?.getBoundingClientRect() || {
+      left: 0,
+      top: 0,
+    }
 
     return {
       left: `${rect.left - containerRect.left}px`,

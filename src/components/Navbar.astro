@@ -11,21 +11,17 @@ const { className } = Astro.props
 <nav
   class={`flex items-center justify-between py-10${className ? " " + className : ""}`}
 >
-  <h1
-    class="-rotate-2 text-2xl font-bold underline decoration-purple-500 underline-offset-8"
-  >
+  <h1 class="-rotate-2 text-2xl font-bold underline decoration-purple-500 underline-offset-8">
     Julian Sommer 👨🏻‍💻
   </h1>
   <div class="item-center flex gap-5">
-    {
-      socials.map((social) => {
-        const Icon = social.Icon
-        return (
-          <a href={social.link} aria-label={social.label}>
-            <Icon class="h-5 w-5 transition-all hover:scale-125" />
-          </a>
-        )
-      })
-    }
+    {socials.map((social) => {
+      const Icon = social.Icon
+      return (
+        <a href={social.link} aria-label={social.label}>
+          <Icon class="h-5 w-5 transition-all hover:scale-125" />
+        </a>
+      )
+    })}
   </div>
 </nav>

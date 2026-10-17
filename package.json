@@ -8,7 +8,7 @@
     "check": "astro check",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write **/*.{astro,css,json,md,ts,tsx} --ignore-path .gitignore"
+    "format": "oxfmt"
   },
   "dependencies": {
     "@astrojs/solid-js": "^7.0.2",
@@ -19,10 +19,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@tailwindcss/vite": "^4.3.3",
-    "prettier": "^3.9.9",
-    "prettier-plugin-astro": "^1.1.0",
-    "prettier-plugin-astro-organize-imports": "^0.4.14",
-    "prettier-plugin-tailwindcss": "^0.8.1",
+    "oxfmt": "^0.73.0",
     "tailwindcss": "^4.3.3",
     "typescript": "6.0.3"
   },
