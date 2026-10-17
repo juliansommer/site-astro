@@ -1,6 +1,6 @@
-import githubActivityCover from "@/assets/github-activity.webp"
 import imgurScanCover from "@/assets/imgur-scan.webp"
 import promptsCover from "@/assets/prompts.webp"
+import sydneySuburbsCover from "@/assets/sydney-suburbs.webp"
 import workoutTrackCover from "@/assets/workout-track.webp"
 
 import { FaBrandsJava } from "solid-icons/fa"
@@ -13,10 +13,12 @@ import {
   SiLinkedin,
   SiMongodb,
   SiNextdotjs,
+  SiPostgresql,
   SiPython,
   SiReact,
   SiSqlite,
   SiSupabase,
+  SiTailwindcss,
   SiTypescript,
   SiAmazonaws,
 } from "solid-icons/si"
@@ -87,6 +89,13 @@ export const education: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: "Sydney Suburbs",
+    tech: [SiReact, SiTypescript, SiTailwindcss, SiPostgresql],
+    link: "https://github.com/juliansommer/sydney-suburbs",
+    cover: sydneySuburbsCover.src,
+    background: "bg-sky-500",
+  },
+  {
     title: "Workout Track",
     tech: [SiNextdotjs, SiReact, SiTypescript, SiPython, SiSupabase],
     link: "https://github.com/juliansommer/workout-track",
@@ -98,13 +107,6 @@ export const projects: Project[] = [
     tech: [SiNextdotjs, SiReact, SiTypescript, SiMongodb],
     link: "https://github.com/juliansommer/prompts",
     cover: promptsCover.src,
-    background: "bg-sky-500",
-  },
-  {
-    title: "GitHub Activity",
-    tech: [SiGo],
-    link: "https://github.com/juliansommer/github-activity",
-    cover: githubActivityCover.src,
     background: "bg-purple-500",
   },
   {
