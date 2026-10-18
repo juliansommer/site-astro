@@ -11,10 +11,11 @@ import {
   SiPostgresql,
   SiPython,
   SiReact,
+  SiSolid,
   SiSqlite,
   SiSupabase,
-  SiTailwindcss,
   SiTypescript,
+  SiVercel,
   SiAmazonaws,
 } from "solid-icons/si"
 
@@ -38,8 +39,8 @@ export const experience: Experience[] = [
     description: [
       "●	Core contributor to Spinifex, an open-source cloud platform that recreates AWS on bare metal",
       "●	Built 100+ AWS-compatible API actions from scratch across EC2, IAM, RDS, IMDS, STS",
-      "●	Built a React and TypeScript AWS management console, with login using STS temporary credentials",
-      "●	Wrote single-node and multi-node E2E test suites covering every AWS command",
+      "●	Developed a React and TypeScript AWS management console with login using STS temporary credentials",
+      "●	Wrote single-node and multi-node E2E test suites covering every implemented command",
       "●	Set up GitHub Actions pipelines for testing, linting and security scanning",
     ],
     tech: [SiGo, SiTypescript, SiReact, SiPython, SiAmazonaws, SiDocker],
@@ -49,11 +50,11 @@ export const experience: Experience[] = [
     role: "Junior Full Stack Developer",
     company: "Metatrail",
     description: [
-      "●	Optimized SEO, performance (50 increase on Lighthouse), JavaScript bundle size (500kb to 300kb) on the frontend",
-      "●	Created a Go program to parse the DOM of websites against technologies matches using JavaScript",
-      "●	Created Python script to scrape and store website metadata and icons from a million domains",
-      "●	Used Next.js with TypeScript to dynamically create web pages for the most popular categories and vendors",
-      "●	Used GitHub Actions with Docker to containerize the website and upload the image to GitHub Packages for CI/CD",
+      "●	Cut JavaScript bundle size by 40% (500 KB to 300 KB) and raised the Lighthouse performance score by 50",
+      "●	Built a Go tool that detects a website's tech stack from its DOM and JavaScript signatures",
+      "●	Wrote a Python scraper that collected metadata and icons from one million domains",
+      "●	Generated SEO pages for the most popular categories and vendors with Next.js and TypeScript",
+      "●	Automated Docker image builds and publishing to GitHub Packages with GitHub Actions",
     ],
     tech: [SiGo, SiTypescript, SiReact, SiNextdotjs, SiPython, SiDocker],
   },
@@ -82,7 +83,7 @@ export const education: Experience[] = [
   },
   {
     year: "Jan 2022 - Sep 2023",
-    role: "Certificate 3 of Information Technology ICT30120",
+    role: "Certificate 3 in Information Technology (ICT30120)",
     company: "TAFE Queensland",
     description: ["●	Major: Cybersecurity"],
     tech: [SiPython],
@@ -92,7 +93,7 @@ export const education: Experience[] = [
 export const projects: Project[] = [
   {
     title: "Sydney Suburbs",
-    tech: [SiReact, SiTypescript, SiTailwindcss, SiPostgresql],
+    tech: [SiSolid, SiTypescript, SiPostgresql, SiVercel],
     link: "https://github.com/juliansommer/sydney-suburbs",
     cover: sydneySuburbsCover.src,
     background: "bg-sky-500",
