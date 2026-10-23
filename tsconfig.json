@@ -3,8 +3,6 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+    }
   }
 }

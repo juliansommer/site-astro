@@ -1,30 +1,31 @@
-import type { IconTypes } from "solid-icons"
+import type { IconName } from "@/lib/icons.ts"
 
-export interface Experience {
-  year: string
+export interface Entry {
+  organisation: string
   role: string
-  company: string
-  description: string[]
-  tech: IconTypes[]
+  date: string
+  location: string
+  bullets: string[]
+  tech?: string[]
 }
 
 export interface Project {
   title: string
-  tech: IconTypes[]
-  link: string
-  cover: string
-  background: string
+  description: string
+  tech: string[]
+  link?: string
+  bullets?: string[]
 }
 
 export interface Skill {
-  text: string
-  Icon: IconTypes
+  name: string
+  icon: IconName
 }
 
 export interface Social {
   link: string
   label: string
-  Icon: IconTypes
+  icon: IconName
 }
 
 export type Email = `${string}@${string}.${string}`

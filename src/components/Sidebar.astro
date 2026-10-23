@@ -1,0 +1,96 @@
+---
+import Icon from "@/components/Icon.astro"
+import { email, socials } from "@/lib/data.ts"
+
+interface Props {
+  sections: { id: string; title: string }[]
+}
+
+const { sections } = Astro.props
+---
+
+<header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+  <div>
+    <h1 class="text-4xl font-bold tracking-tight text-neutral-100 sm:text-5xl">
+      Julian Sommer
+    </h1>
+    <h2 class="mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl">
+      Systems Engineer in Sydney, Australia
+    </h2>
+    <p class="mt-4 max-w-sm leading-relaxed text-neutral-400">
+      I build backend systems and cloud infrastructure, mostly in Go and
+      TypeScript.
+    </p>
+    <nav class="hidden lg:block" aria-label="In-page navigation">
+      <ul class="mt-16 w-max">
+        {sections.map((section) => (
+          <li>
+            <a
+              href={`#${section.id}`}
+              data-nav-link={section.id}
+              class="group flex items-center py-3"
+            >
+              <span class="mr-4 h-px w-10 bg-neutral-600 transition-all group-hover:w-20 group-hover:bg-neutral-200 group-focus-visible:w-20 group-focus-visible:bg-neutral-200 group-data-active:w-20 group-data-active:bg-sky-400 motion-reduce:transition-none" />
+              <span class="text-sm font-bold tracking-widest text-neutral-500 uppercase group-hover:text-neutral-200 group-focus-visible:text-neutral-200 group-data-active:text-neutral-100">
+                {section.title}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+  <ul class="mt-8 flex items-center gap-5" aria-label="Social media">
+    {socials.map((social) => {
+      return (
+        <li>
+          <a
+            href={social.link}
+            aria-label={social.label}
+            class="block text-neutral-400 transition hover:text-neutral-100"
+          >
+            <Icon name={social.icon} class="h-6 w-6" />
+          </a>
+        </li>
+      )
+    })}
+    <li>
+      <a
+        href={`mailto:${email}`}
+        aria-label="Email"
+        class="block text-neutral-400 transition hover:text-neutral-100"
+      >
+        <Icon name="email" class="h-6 w-6" />
+      </a>
+    </li>
+  </ul>
+</header>
+
+<script>
+  const links = [
+    ...document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]"),
+  ]
+  const sections = links
+    .map((link) => document.getElementById(link.dataset.navLink ?? ""))
+    .filter((section) => section !== null)
+
+  // Short final sections never reach the threshold, so force it at the bottom
+  function update() {
+    const atBottom =
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 2
+    const threshold = window.innerHeight * 0.35
+    const active = atBottom
+      ? sections.at(-1)
+      : sections.findLast(
+          (section) => section.getBoundingClientRect().top <= threshold,
+        )
+    for (const link of links) {
+      link.toggleAttribute("data-active", link.dataset.navLink === active?.id)
+    }
+  }
+
+  update()
+  window.addEventListener("scroll", update, { passive: true })
+  window.addEventListener("resize", update)
+</script>

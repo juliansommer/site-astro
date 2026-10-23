@@ -3,10 +3,10 @@ import "@/styles/globals.css"
 
 const {
   title = "Julian Sommer",
-  description = "Julian Sommer is a full stack developer based in Sydney, Australia.",
+  description = "Julian Sommer is a systems engineer based in Sydney, Australia.",
   url = "https://julians.au",
   image = "https://julians.au/opengraph-image.png",
-  imageAlt = "Hi, I'm Julian — a fullstack developer from Australia with a passion for building modern web applications.",
+  imageAlt = "Julian Sommer, systems engineer in Sydney, Australia.",
 } = Astro.props
 ---
 
@@ -39,7 +39,7 @@ const {
     <meta name="twitter:image" content={image} />
     <meta name="twitter:image:alt" content={imageAlt} />
   </head>
-  <body class="bg-black text-white antialiased">
+  <body class="bg-black leading-relaxed text-neutral-400 antialiased selection:bg-sky-500/30 selection:text-white">
     <slot />
   </body>
 </html>

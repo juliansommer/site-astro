@@ -1,28 +1,61 @@
 ---
-import Experience from "@/components/Experience.astro"
-import Footer from "@/components/Footer.astro"
-import HeroSection from "@/components/HeroSection.astro"
-import Navbar from "@/components/Navbar.astro"
-import Projects from "@/components/Projects.astro"
+import EntryCard from "@/components/EntryCard.astro"
+import ProjectCard from "@/components/ProjectCard.astro"
+import Section from "@/components/Section.astro"
+import Sidebar from "@/components/Sidebar.astro"
 import Skills from "@/components/Skills.astro"
 import Layout from "@/layouts/Root.astro"
-import { education, experience } from "@/lib/data.ts"
+import { education, experience, projects } from "@/lib/data.ts"
+
+const sections = [
+  { id: "experience", title: "Experience" },
+  { id: "projects", title: "Projects" },
+  { id: "education", title: "Education" },
+  { id: "skills", title: "Skills" },
+]
 ---
 
 <Layout>
-  <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(38,38,38,0.7)_1px,transparent_1px),linear-gradient(to_bottom,rgba(38,38,38,0.7)_1px,transparent_1px)] bg-size-[32px_32px]"></div>
-  <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black mask-[radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-  <div class="mx-auto max-w-6xl p-5 pb-36">
-    <Navbar className="animate-move-down" />
-    <HeroSection />
-  </div>
-  <div class="mx-auto max-w-5xl space-y-24 p-5 pt-10">
-    <Experience title={"Experience 💼"} data={experience} />
-    <Experience title={"Education 📚"} data={education} />
-    <Projects />
-    <Skills />
-  </div>
-  <div class="mx-auto max-w-6xl p-5">
-    <Footer />
+  <div class="mx-auto min-h-screen max-w-6xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+    <div class="lg:flex lg:justify-between lg:gap-4">
+      <Sidebar sections={sections} />
+      <main class="pt-10 lg:w-1/2 lg:py-24">
+        <div class="space-y-10 lg:space-y-20">
+          <Section id="experience" title="Experience">
+            <ol class="group/list space-y-12">
+              {experience.map((entry) => (
+                <li>
+                  <EntryCard entry={entry} />
+                </li>
+              ))}
+            </ol>
+          </Section>
+
+          <Section id="projects" title="Projects">
+            <ul class="group/list space-y-12">
+              {projects.map((project) => (
+                <li>
+                  <ProjectCard project={project} />
+                </li>
+              ))}
+            </ul>
+          </Section>
+
+          <Section id="education" title="Education">
+            <ol class="group/list space-y-12">
+              {education.map((entry) => (
+                <li>
+                  <EntryCard entry={entry} />
+                </li>
+              ))}
+            </ol>
+          </Section>
+
+          <Section id="skills" title="Skills">
+            <Skills />
+          </Section>
+        </div>
+      </main>
+    </div>
   </div>
 </Layout>

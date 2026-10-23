@@ -1,31 +1,12 @@
 @import "tailwindcss";
 
-@theme {
-  --animate-move-up: move-up 1s linear forwards;
-  @keyframes move-up {
-    0% {
-      transform: translateY(10px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0px);
-      opacity: 1;
-    }
-  }
-
-  --animate-move-down: move-down 1s linear forwards;
-  @keyframes move-down {
-    0% {
-      transform: translateY(-10px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-}
-
 html {
   overscroll-behavior: none;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
