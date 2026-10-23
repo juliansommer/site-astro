@@ -4,7 +4,6 @@ export interface Entry {
   organisation: string
   role: string
   date: string
-  location: string
   bullets: string[]
   tech?: string[]
 }

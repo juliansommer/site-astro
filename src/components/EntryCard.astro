@@ -20,10 +20,7 @@ const { entry } = Astro.props
         </h3>
         <p class="text-xs font-medium text-neutral-400">{entry.date}</p>
       </div>
-      <div class="mt-0.5 flex flex-wrap items-baseline justify-between gap-x-4">
-        <p class="text-sm text-neutral-300 italic">{entry.role}</p>
-        <p class="text-xs text-neutral-500">{entry.location}</p>
-      </div>
+      <p class="mt-0.5 text-sm text-neutral-300 italic">{entry.role}</p>
     </header>
     <ul class="mt-3 list-disc space-y-1 pl-4 text-sm leading-relaxed text-neutral-400 marker:text-neutral-600">
       {entry.bullets.map((bullet) => (

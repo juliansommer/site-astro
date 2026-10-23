@@ -5,7 +5,6 @@ export const experience: Entry[] = [
     organisation: "Mulga",
     role: "Junior Systems Engineer",
     date: "Nov 2025 – Present",
-    location: "Sydney, NSW",
     bullets: [
       "Core contributor to Spinifex, an open-source cloud platform that recreates AWS on bare metal",
       "Built 100+ AWS-compatible API actions from scratch across EC2, IAM, RDS, IMDS, STS",
@@ -19,7 +18,6 @@ export const experience: Entry[] = [
     organisation: "Metatrail",
     role: "Junior Full Stack Developer",
     date: "Sep 2023 – Dec 2024",
-    location: "Peregian, QLD",
     bullets: [
       "Cut JavaScript bundle size by 40% (500 KB to 300 KB) and raised the Lighthouse performance score by 50",
       "Built a Go tool that detects a website's tech stack from its DOM and JavaScript signatures",
@@ -36,14 +34,12 @@ export const education: Entry[] = [
     organisation: "University of Technology Sydney",
     role: "Bachelor of Computing Science",
     date: "Expected Nov 2027",
-    location: "Sydney, NSW",
     bullets: ["Major: Enterprise Software Development", "GPA: 6.42/7.00"],
   },
   {
     organisation: "Good Shepherd Lutheran College",
     role: "High School Diploma",
     date: "Jan 2020 – Nov 2024",
-    location: "Noosa, QLD",
     bullets: [
       "Grade: 92.10 ATAR",
       "Top of Grade: Digital Solutions, General Mathematics",
@@ -53,7 +49,6 @@ export const education: Entry[] = [
     organisation: "TAFE Queensland",
     role: "Certificate 3 in Information Technology (ICT30120)",
     date: "Jan 2022 – Sep 2023",
-    location: "Mooloolaba, QLD",
     bullets: ["Major: Cybersecurity"],
   },
 ]
