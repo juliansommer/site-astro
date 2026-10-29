@@ -15,6 +15,11 @@ export const icons = {
     stroke: true,
     body: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>',
   },
+  arrowUpRight: {
+    viewBox: "0 0 24 24",
+    stroke: true,
+    body: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/>',
+  },
   go: {
     viewBox: "0 0 24 24",
     stroke: false,

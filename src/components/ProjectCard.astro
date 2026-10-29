@@ -1,6 +1,7 @@
 ---
 import type { Project } from "@/types/index.ts"
 
+import Icon from "./Icon.astro"
 import Tags from "./Tags.astro"
 
 interface Props {
@@ -17,15 +18,15 @@ const { project } = Astro.props
       {project.link ? (
         <a
           href={project.link}
-          class="group/link inline-flex items-baseline hover:text-sky-300 focus-visible:text-sky-300"
+          class="group/link inline-flex items-baseline hover:text-purple-300 focus-visible:text-purple-300"
         >
           <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded-sm md:-inset-x-6 md:-inset-y-4 lg:block"></span>
           {project.title}
           <span
-            class="ml-1 inline-block transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1"
+            class="ml-1 inline-block self-center transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1"
             aria-hidden="true"
           >
-            ↗
+            <Icon name="arrowUpRight" class="h-3.5 w-3.5" />
           </span>
         </a>
       ) : (
