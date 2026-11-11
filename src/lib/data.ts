@@ -7,10 +7,11 @@ export const experience: Entry[] = [
     date: "Nov 2025 – Present",
     bullets: [
       "Core contributor to Spinifex, an open-source cloud platform that recreates AWS on bare metal",
-      "Built 100+ AWS-compatible API actions from scratch across EC2, IAM, RDS, IMDS, STS",
-      "Developed a React and TypeScript AWS management console with login using STS temporary credentials",
-      "Wrote single-node and multi-node E2E test suites covering every implemented command",
-      "Set up GitHub Actions pipelines for testing, linting and security scanning",
+      "Built 190+ AWS-compatible API actions across EC2, IAM, RDS, IMDS, STS",
+      "Created a multi-arch release pipeline that verifies each draft on a live cluster before promoting it",
+      "Implemented E2E pipelines testing single and multi-node clusters using self-hosted runners",
+      "Developed an AWS-style management console in React and TypeScript",
+      "Created an autonomous AI software factory that turns issues into reviewed pull requests",
     ],
     tech: ["Go", "TypeScript", "React", "Python", "AWS", "Docker"],
   },
@@ -75,7 +76,7 @@ export const projects: Project[] = [
     bullets: [
       "Added suburb search and Google/GitHub sign-in to sync visits across devices",
       "Wrote a data pipeline merging ABS Census, crime, tree canopy and Wikidata into suburb profiles",
-      "Drew a zoomable d3 map with heatmaps for income, rent and crime, and NRL club territories",
+      "Drew a zoomable map with heatmaps for income, rent and crime, and NRL club territories",
     ],
   },
 ]
