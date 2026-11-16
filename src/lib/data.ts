@@ -7,7 +7,7 @@ export const experience: Entry[] = [
     date: "Nov 2025 – Present",
     bullets: [
       "Core contributor to Spinifex, an open-source cloud platform that recreates AWS on bare metal",
-      "Built 190+ AWS-compatible API actions across EC2, IAM, RDS, IMDS, STS",
+      "Built 200+ AWS-compatible API actions across EC2, IAM, RDS, IMDS, STS",
       "Created a multi-arch release pipeline that verifies each draft on a live cluster before promoting it",
       "Implemented E2E pipelines testing single and multi-node clusters using self-hosted runners",
       "Developed an AWS-style management console in React and TypeScript",
