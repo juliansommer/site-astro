@@ -11,12 +11,12 @@
     "format": "oxfmt"
   },
   "dependencies": {
-    "astro": "^7.4.11"
+    "astro": "^7.4.13"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
     "@tailwindcss/vite": "^4.3.5",
-    "oxfmt": "^0.78.0",
+    "oxfmt": "^0.79.0",
     "tailwindcss": "^4.3.5",
     "typescript": "6.0.3"
   },
